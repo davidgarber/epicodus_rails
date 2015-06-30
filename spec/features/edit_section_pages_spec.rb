@@ -45,3 +45,13 @@ it "gives errors when no name is entered" do
   expect(page).to have_content "errors"
   end
 end
+
+describe 'the delete a lesson process' do
+  it 'deletes a lesson' do
+    section = Section.create(:title => "Java basics")
+    section.lessons.create(:name => "Woot", :body => "Woot Woot", :number => 1)
+    visit section_path(section)
+    click_on 'Destroy'
+    expect(page).to have_content "section"
+  end
+end
