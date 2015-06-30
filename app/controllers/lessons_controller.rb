@@ -34,6 +34,13 @@ class LessonsController < ApplicationController
     end
 end
 
+  def destroy
+    @section = Section.find(params[:section_id])
+    @lesson = Lesson.find(params[:id])
+    @lesson.destroy
+    redirect_to section_path(@lesson.section)
+  end
+
   private
   def lesson_params
     params.require(:lesson).permit(:name, :body, :number)
