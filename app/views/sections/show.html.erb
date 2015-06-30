@@ -1,5 +1,24 @@
 <h1><%= @section.title %></h1>
 
+<% if @section.lessons.any? %>
+  <h4>Here are the lessons for this section:</h4>
+
+  <ul>
+    <% @section.lessons.each do |lesson| %>
+      <li>
+        <%= lesson.name %> |
+        <%= link_to "Edit", edit_section_lesson_path(@section, lesson) %> |
+        <%= link_to "Delete", section_lesson_path(@section, task),
+                              :data => {:confirm => "Are you sure?",
+                                        :method => "delete"} %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    There are no tasks yet!
+  </p>
+
 <p>
   <%= link_to "Edit", edit_section_path(@section) %>
 </p>
