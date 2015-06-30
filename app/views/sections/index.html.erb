@@ -5,3 +5,6 @@
     <li><%= link_to section.title, section_path(section) %></li>
   <% end %>
 </ul>
+<p>
+  <%= link_to "New Section", new_section_path(@section) %>
+</p>
