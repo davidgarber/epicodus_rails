@@ -9,6 +9,21 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find(params[:id])
   end
 
+  def edit
+    @section = Section.find(params[:section_id])
+    @lesson = Lesson.find(params[:id])
+  end
+
+  def update
+    @section = Section.find(params[:section_id])
+    @lesson = Lesson.find(params[:id])
+    if @lesson.update(lesson_params)
+      redirect_to section_path(@lesson.section)
+    else
+      render :edit
+    end
+  end
+
   def create
     @section = Section.find(params[:section_id])
     @lesson = @section.lessons.new(lesson_params)
