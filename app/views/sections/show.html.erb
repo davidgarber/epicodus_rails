@@ -1,5 +1,15 @@
 <h1><%= @section.title %></h1>
 
 <p>
+  <%= link_to "Edit", edit_section_path(@section) %>
+</p>
+
+<p>
+  <%= link_to "Delete", section_path(@section),
+                        :data => {:confirm => "Are you sure?",
+                                  :method => "delete"} %>
+</p>
+
+<p>
   <%= link_to "Returns to sections", sections_path %>
 </p>

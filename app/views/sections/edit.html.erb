@@ -1,6 +1,8 @@
 <h1>Edit section</h1>
 
-<% if @section.errors.any? %>
+<%= render "form" %>
+
+<!-- <% if @section.errors.any? %>
   <h3>Please fix these errors:</h3>
   <ul>
     <% @section.errors.full_messages.each do |message| %>
@@ -13,4 +15,4 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.submit %>
-<% end %>
+<% end %> -->

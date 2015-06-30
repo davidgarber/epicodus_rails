@@ -24,6 +24,13 @@ class SectionsController < ApplicationController
     end
   end
 
+  def destroy
+    @section = Section.find(params[:id])
+    @section.destroy
+    redirect_to sections_path
+  end
+  
+
   def create
     @section = Section.new(section_params)
     if @section.save
